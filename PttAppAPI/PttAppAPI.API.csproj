@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PttAppAPI.Application\PttAppAPI.Application.csproj" />
+    <ProjectReference Include="..\PttAppAPI.Persistence\PttAppAPI.Persistence.csproj" />
   </ItemGroup>
 
 </Project>
