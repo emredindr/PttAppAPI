@@ -7,11 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\PttAppAPI.Application\PttAppAPI.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Contexts\" />
   </ItemGroup>
 
 </Project>
