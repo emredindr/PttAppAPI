@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PttAppAPI.Domain\PttAppAPI.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

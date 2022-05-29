@@ -3,21 +3,34 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PttAppAPI.API", "PttAppAPI\PttAppAPI.API.csproj", "{0998C5DD-28E6-4DF7-B9ED-3499C0E2D3B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PttAppAPI.API", "PttAppAPI\PttAppAPI.API.csproj", "{0998C5DD-28E6-4DF7-B9ED-3499C0E2D3B3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{65F5F0BB-9D36-48CF-8F16-7940B53FDCA5} = {65F5F0BB-9D36-48CF-8F16-7940B53FDCA5}
+		{2739C0EB-6285-436E-AE44-227C5B784D6C} = {2739C0EB-6285-436E-AE44-227C5B784D6C}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E2BD4DAA-5261-47B5-BAF4-1CA5618AC807}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{5970B049-8BFC-4BE2-A2D8-6AB0E9A083B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PttAppAPI.Domain", "PttAppAPI.Domain\PttAppAPI.Domain.csproj", "{3FA1235F-538C-4CFA-8A9C-008E14816957}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PttAppAPI.Domain", "PttAppAPI.Domain\PttAppAPI.Domain.csproj", "{3FA1235F-538C-4CFA-8A9C-008E14816957}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PttAppAPI.Application", "PttAppAPI.Application\PttAppAPI.Application.csproj", "{2739C0EB-6285-436E-AE44-227C5B784D6C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PttAppAPI.Application", "PttAppAPI.Application\PttAppAPI.Application.csproj", "{2739C0EB-6285-436E-AE44-227C5B784D6C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3FA1235F-538C-4CFA-8A9C-008E14816957} = {3FA1235F-538C-4CFA-8A9C-008E14816957}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{E73E6AEA-7F29-4DE3-B23A-D1B7106B5444}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PttAppAPI.Infrasructure", "PttAppAPI.Infrasructure\PttAppAPI.Infrasructure.csproj", "{0F2ED080-EFC0-4B9F-8E51-A12E0A360080}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PttAppAPI.Infrasructure", "PttAppAPI.Infrasructure\PttAppAPI.Infrasructure.csproj", "{0F2ED080-EFC0-4B9F-8E51-A12E0A360080}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2739C0EB-6285-436E-AE44-227C5B784D6C} = {2739C0EB-6285-436E-AE44-227C5B784D6C}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PttAppAPI.Persistence", "PttAppAPI.Persistence\PttAppAPI.Persistence.csproj", "{65F5F0BB-9D36-48CF-8F16-7940B53FDCA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PttAppAPI.Persistence", "PttAppAPI.Persistence\PttAppAPI.Persistence.csproj", "{65F5F0BB-9D36-48CF-8F16-7940B53FDCA5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2739C0EB-6285-436E-AE44-227C5B784D6C} = {2739C0EB-6285-436E-AE44-227C5B784D6C}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{069E116A-BF94-4C71-AF0E-98B48D486D83}"
 EndProject
