@@ -15,6 +15,6 @@ public static class ServiceRegistration
     public static void AddPersistenceServices(this IServiceCollection services)
     {
         services.AddSingleton<IProductService, ProductService>();
-        services.AddDbContext<PttAPIDbContext>(options => options.UseSqlServer("server=.;database=PttAppDatabase;trusted_connection=true;"));
+        services.AddDbContext<PttAPIDbContext>(options => options.UseSqlServer(Configuration.ConnectionString));
     }
 }
