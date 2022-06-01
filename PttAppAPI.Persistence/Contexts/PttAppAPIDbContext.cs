@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using PttAppAPI.Domain.Entity;
 
-namespace PttAppAPI.Persistence.Concretes;
-public class PttAppAPIDbContext
+namespace PttAppAPI.Persistence.Contexts;
+public class PttAppAPIDbContext : DbContext
 {
-    public class PttAPIDbContext : DbContext
+    public PttAppAPIDbContext(DbContextOptions options) : base(options)
     {
-        public PttAPIDbContext(DbContextOptions options) : base(options) { }
-        public DbSet<Product> Products { get; set; }
     }
+    public DbSet<Product>Products { get; set; }
 }
