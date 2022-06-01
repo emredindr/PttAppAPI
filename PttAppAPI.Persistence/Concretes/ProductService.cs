@@ -12,7 +12,7 @@ public class ProductService : IProductService
 {
     public List<Product> GetAllProducts()
     {
-        List<Product> products = new List<Product>()
+        List<Product> products = new()
             {
                new Product
                {

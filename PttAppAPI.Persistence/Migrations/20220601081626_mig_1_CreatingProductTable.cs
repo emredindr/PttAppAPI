@@ -21,10 +21,7 @@ namespace PttAppAPI.Persistence.Migrations
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<float>(type: "real", nullable: false)
                 },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Products", x => x.Id);
-                });
+                constraints: table => table.PrimaryKey("PK_Products", x => x.Id));
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
