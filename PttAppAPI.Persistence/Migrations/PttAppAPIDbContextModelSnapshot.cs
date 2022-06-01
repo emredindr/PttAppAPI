@@ -2,19 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using PttAppAPI.Persistence.Concretes;
+using PttAppAPI.Persistence.Contexts;
 
 #nullable disable
 
 namespace PttAppAPI.Persistence.Migrations
 {
-    [DbContext(typeof(PttAppAPIDbContext.PttAPIDbContext))]
-    [Migration("20220529231205_mig_products")]
-    partial class mig_products
+    [DbContext(typeof(PttAppAPIDbContext))]
+    partial class PttAppAPIDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

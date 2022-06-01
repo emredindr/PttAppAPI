@@ -9,10 +9,10 @@ static class Configuration
         get
         {
             ConfigurationManager configurationManager = new();
-            configurationManager.SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../../Presentation/PttAppAPI.API"));
+            configurationManager.SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../../PttAppAPI/PttAppAPI"));
             configurationManager.AddJsonFile("appsettings.json");
-
-            return configurationManager.GetConnectionString("UseSqlServer");
+        
+            return configurationManager.GetConnectionString("SqlServer");
         }
     }
 }
