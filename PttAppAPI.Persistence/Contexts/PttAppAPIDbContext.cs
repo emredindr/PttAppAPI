@@ -18,4 +18,5 @@ public class PttAppAPIDbContext : DbContext
     public DbSet<SubCategory> SubCategories { get; set; }
     public DbSet<SubOfSubCategory> SubOfSubCategories { get; set; }
     public DbSet<AccountPageItem> AccountPageItems { get; set; }
+    public DbSet<AccountPageItemLogined> AccountPageItemsLogined { get; set; }
 }
