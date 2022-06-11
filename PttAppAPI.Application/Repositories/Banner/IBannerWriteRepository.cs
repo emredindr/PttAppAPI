@@ -1,7 +1,7 @@
 ﻿using PttApp.Domain.Entities;
 
 namespace PttAppAPI.Application.Repositories;
-public interface IMainCategoryWriteRepository : IWriteRepository<MainCategory>
+public interface IBannerWriteRepository:IWriteRepository<Banner>
 {
 
 }
