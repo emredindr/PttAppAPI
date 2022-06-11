@@ -26,8 +26,4 @@
     <ProjectReference Include="..\PttAppAPI.Application\PttAppAPI.Application.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Repositories\NewFolder\" />
-  </ItemGroup>
-
 </Project>
