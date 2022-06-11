@@ -20,4 +20,5 @@ public class PttAppAPIDbContext : DbContext
     public DbSet<AccountPageItem> AccountPageItems { get; set; }
     public DbSet<AccountPageItemLogined> AccountPageItemsLogined { get; set; }
     public DbSet<Banner> BannerItems { get; set; }
+    public DbSet<MyBasketItem> MyBasketItems { get; set; }   
 }
