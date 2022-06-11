@@ -15,4 +15,6 @@ public class PttAppAPIDbContext : DbContext
     }
     public DbSet<Product> Products { get; set; }
     public DbSet<MainCategory> MainCategories { get; set; }
+    public DbSet<SubCategory> SubCategories { get; set; }
+
 }
