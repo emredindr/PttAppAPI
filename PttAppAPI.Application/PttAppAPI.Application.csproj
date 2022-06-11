@@ -14,4 +14,9 @@
     <ProjectReference Include="..\PttAppAPI.Domain\PttAppAPI.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Repositories\SubOfSubCategory\" />
+    <Folder Include="Repositories\SubCategory\" />
+  </ItemGroup>
+
 </Project>
