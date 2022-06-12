@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PttApp.Domain.Entities;
 using PttAppAPI.Application.Abstractions;
 using PttAppAPI.Domain.Entity;
 
@@ -1132,5 +1128,15 @@ public class ProductService : IProductService
 
         return products;
 
+    }
+
+    public Product GetProductById(int productId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public List<Product> GetProducts(ProductFilter productFilter)
+    {
+        throw new NotImplementedException();
     }
 }
