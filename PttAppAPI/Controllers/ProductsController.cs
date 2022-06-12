@@ -9,19 +9,39 @@ namespace PttAppAPI.API.Controllers;
 [ApiController]
 public class ProductsController : ControllerBase
 {
+    //Services
     private readonly IProductService _productService;
+    private readonly ICategoryService _categoryService;
+    //Read Repositories
     private readonly IProductReadRepository _productReadRepository;
+    private readonly IMainCategoryReadRepository _mainCategoryReadRepository;
+    private readonly ISubCategoryReadRepository _subCategoryReadRepository;
+
+    //write Repositories
     private readonly IProductWriteRepository _productWriteRepository;
+    private readonly IMainCategoryWriteRepository _mainCategoryWriteRepository;
+    private readonly ISubCategoryWriteRepository _subCategoryWriteRepository;
+
     public ProductsController
         (
         IProductService productService,
         IProductWriteRepository productWriteRepository,
-        IProductReadRepository productReadRepository
+        IProductReadRepository productReadRepository,
+        ICategoryService mainCategoryService,
+        IMainCategoryReadRepository mainCategoryReadRepository,
+        IMainCategoryWriteRepository mainCategoryWriteRepository,
+        ISubCategoryReadRepository subCategoryReadRepository,
+        ISubCategoryWriteRepository subCategoryWriteRepository
         )
     {
         _productService = productService;
         _productReadRepository = productReadRepository;
         _productWriteRepository = productWriteRepository;
+        _categoryService = mainCategoryService;
+        _mainCategoryReadRepository = mainCategoryReadRepository;
+        _mainCategoryWriteRepository = mainCategoryWriteRepository;
+        _subCategoryWriteRepository = subCategoryWriteRepository;
+        _subCategoryReadRepository = subCategoryReadRepository;
     }
     //[HttpGet]
     //public IActionResult GetAllProducts()
@@ -30,12 +50,21 @@ public class ProductsController : ControllerBase
 
     //    return Ok(product);
     //}
+    //    await _productWriteRepository.AddRangeAsync(products);
+    //    await _productWriteRepository.SaveAsync();
     [HttpGet]
     public List<Product> GetAll()
     {
         var products = _productReadRepository.GetAll();
 
         return products.ToList();
+    }
+    [HttpPost]
+    public async Task AddAllMainCategory()
+    {
+        var item = _categoryService.GetSubCategories();
+        await _subCategoryWriteRepository.AddRangeAsync(item);
+        await _subCategoryWriteRepository.SaveAsync();
     }
     //Bütün Product verileri veritabanına kaydedildi.
     //[HttpPost]
