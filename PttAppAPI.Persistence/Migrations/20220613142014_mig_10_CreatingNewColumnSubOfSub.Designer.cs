@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PttAppAPI.Persistence.Contexts;
 
@@ -11,9 +12,10 @@ using PttAppAPI.Persistence.Contexts;
 namespace PttAppAPI.Persistence.Migrations
 {
     [DbContext(typeof(PttAppAPIDbContext))]
-    partial class PttAppAPIDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220613142014_mig_10_CreatingNewColumnSubOfSub")]
+    partial class mig_10_CreatingNewColumnSubOfSub
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

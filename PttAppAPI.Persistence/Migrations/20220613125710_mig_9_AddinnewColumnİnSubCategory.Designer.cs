@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PttAppAPI.Persistence.Contexts;
 
@@ -11,9 +12,10 @@ using PttAppAPI.Persistence.Contexts;
 namespace PttAppAPI.Persistence.Migrations
 {
     [DbContext(typeof(PttAppAPIDbContext))]
-    partial class PttAppAPIDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220613125710_mig_9_AddinnewColumnİnSubCategory")]
+    partial class mig_9_AddinnewColumnİnSubCategory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -140,6 +142,9 @@ namespace PttAppAPI.Persistence.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("IdSub")
+                        .HasColumnType("int");
+
                     b.Property<string>("ImageSource")
                         .HasColumnType("nvarchar(max)");
 
@@ -148,9 +153,6 @@ namespace PttAppAPI.Persistence.Migrations
 
                     b.Property<bool>("IsPopularForElecktronic")
                         .HasColumnType("bit");
-
-                    b.Property<int?>("SubId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
@@ -172,9 +174,6 @@ namespace PttAppAPI.Persistence.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("SubCategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SubOfSubId")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")

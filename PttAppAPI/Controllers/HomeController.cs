@@ -9,7 +9,6 @@ namespace PttAppAPI.API.Controllers;
 [ApiController]
 public class HomeController : ControllerBase
 {
-    private readonly IHomeService _homeService;
     private readonly IBannerReadRepository _bannerReadRepository;
     private readonly IBannerWriteRepository _bannerWriteRepository;
     public HomeController
@@ -19,12 +18,12 @@ public class HomeController : ControllerBase
         IBannerReadRepository bannerReadRepository
        )
        {
-        _homeService = homeService; 
         _bannerWriteRepository = bannerWriteRepository;
         _bannerReadRepository = bannerReadRepository;
        }
     
     [HttpGet]
+    [Route("Banner")]
     public List<Banner> GetAll()
     {
         var banners = _bannerReadRepository.GetAll();

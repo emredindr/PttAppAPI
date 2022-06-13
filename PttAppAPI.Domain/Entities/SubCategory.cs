@@ -4,6 +4,8 @@ namespace PttApp.Domain.Entities;
 
 public class SubCategory : BaseEntity
 {
+    
+    public int? SubId { get; set; }   
     public int CategoryId { get; set; }
     public string? Title { get; set; }
     public bool IsPopularForElecktronic { get; set; }

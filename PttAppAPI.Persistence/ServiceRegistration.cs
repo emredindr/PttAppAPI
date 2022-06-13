@@ -17,7 +17,7 @@ public static class ServiceRegistration
         services.AddSingleton<ICategoryService, CategoryService>();
         services.AddSingleton< IAccountService , AccountService>();
         services.AddSingleton<ICategoryService, CategoryService>();
-        services.AddDbContext<PttAppAPIDbContext>(options => options.UseSqlServer("server=.;database=PttAppDatabase;User Id=emre;Password=emre77;"), ServiceLifetime.Singleton);
+        services.AddDbContext<PttAppAPIDbContext>(options => options.UseSqlServer("server=.;database=PttAppDatabase; User Id=emre;Password=emre77;"), ServiceLifetime.Singleton);
         //services.AddDbContext<PttAppAPIDbContext>(option => option.UseSqlServer(Configuration.ConnectionString));
         //Read Scopeds
         services.AddScoped<IProductReadRepository, ProductReadRepository>();

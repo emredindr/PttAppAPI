@@ -9,25 +9,21 @@ namespace PttAppAPI.API.Controllers;
 public class MyBasketController : ControllerBase
 {
     private readonly IMyBasketItemWriteRepository _myBasketItemWriteRepository;
-    public MyBasketController(IMyBasketItemWriteRepository myBasketItemWriteRepository)
+    private readonly IMyBasketItemReadRepository _myBasketItemReadRepository;
+    public MyBasketController(IMyBasketItemWriteRepository myBasketItemWriteRepository, IMyBasketItemReadRepository myBasketItemReadRepository)
     {
         _myBasketItemWriteRepository = myBasketItemWriteRepository;
+        _myBasketItemReadRepository = myBasketItemReadRepository;
     }
-    // GET: api/<ValuesController>
     [HttpGet]
-    public IEnumerable<string> Get()
+    public List<MyBasketItem> GetAllBasketItem()
     {
-        return new string[] { "value1", "value2" };
+        var datas = _myBasketItemReadRepository.GetAll();
+
+        return datas.ToList();
     }
 
-    // GET api/<ValuesController>/5
-    [HttpGet("{id}")]
-    public string Get(int id)
-    {
-        return "value";
-    }
-
-    // POST api/<ValuesController>
+    
     [HttpPost]
     [Route("AddBasket")]
     public int AddBasket([FromBody] MyBasketItem myBasketItem)
@@ -38,15 +34,11 @@ public class MyBasketController : ControllerBase
 
     }
 
-    // PUT api/<ValuesController>/5
-    [HttpPut("{id}")]
-    public void Put(int id, [FromBody] string value)
-    {
-    }
-
-    // DELETE api/<ValuesController>/5
     [HttpDelete("{id}")]
-    public void Delete(int id)
+    public int Delete([FromBody] MyBasketItem myBasketItem)
     {
+        _myBasketItemWriteRepository.RemoveAsync(myBasketItem.Id.ToString());
+        var id = _myBasketItemWriteRepository.SaveAsync();
+        return id.Result;
     }
 }

@@ -7,7 +7,7 @@ using PttAppAPI.Domain.Entity;
 namespace PttAppAPI.API.Controllers;
 [Route("api/[controller]")]
 [ApiController]
-public class ProductsController : ControllerBase
+public class ProductController : ControllerBase
 {
     //Services
     private readonly IProductService _productService;
@@ -17,7 +17,7 @@ public class ProductsController : ControllerBase
 
     //write Repositories
     private readonly IProductWriteRepository _productWriteRepository;
-    public ProductsController
+    public ProductController
         (
         IProductService productService,
         IProductWriteRepository productWriteRepository,
@@ -31,6 +31,7 @@ public class ProductsController : ControllerBase
     }
 
     [HttpGet]
+    [Route("GetAllProduct")]
     public List<Product> GetAll()
     {
         var products = _productReadRepository.GetAll();
