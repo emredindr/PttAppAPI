@@ -20,6 +20,12 @@ public class WriteRepository<T> : IWriteRepository<T> where T : BaseEntity
         return entityEntry.State == EntityState.Added;
     }
 
+    public bool Add(T model)
+    {
+        EntityEntry<T> entityEntry = Table.Add(model);
+        return entityEntry.State == EntityState.Added;
+    }
+
     public async Task<bool> AddRangeAsync(List<T> datas)
     {
         await Table.AddRangeAsync(datas);
