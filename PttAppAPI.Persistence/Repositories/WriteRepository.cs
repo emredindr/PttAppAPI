@@ -44,9 +44,9 @@ public class WriteRepository<T> : IWriteRepository<T> where T : BaseEntity
         return true;
     }
 
-    public async Task<bool> RemoveAsync(string id)
+    public async Task<bool> RemoveAsync(int id)
     {
-        T model = await Table.FirstOrDefaultAsync(x => x.Id == Convert.ToInt32(id));
+        T model = await Table.FirstOrDefaultAsync(x => x.Id == id);
         return Remove(model);
     }
 
@@ -59,4 +59,12 @@ public class WriteRepository<T> : IWriteRepository<T> where T : BaseEntity
     public async Task<int> SaveAsync()
         => await _context.SaveChangesAsync();
 
+    public bool RemoveAll()
+    {
+        foreach (var item in Table)
+        {
+           Remove(item);
+        }
+        return true;
+    }
 }

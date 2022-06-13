@@ -16,6 +16,7 @@ public class MyBasketController : ControllerBase
         _myBasketItemReadRepository = myBasketItemReadRepository;
     }
     [HttpGet]
+    [Route("GetAllBasketItem")]
     public List<MyBasketItem> GetAllBasketItem()
     {
         var datas = _myBasketItemReadRepository.GetAll();
@@ -23,9 +24,9 @@ public class MyBasketController : ControllerBase
         return datas.ToList();
     }
 
-    
+
     [HttpPost]
-    [Route("AddBasket")]
+    [Route("AddBasketItem")]
     public int AddBasket([FromBody] MyBasketItem myBasketItem)
     {
         _myBasketItemWriteRepository.AddAsync(myBasketItem);
@@ -34,11 +35,19 @@ public class MyBasketController : ControllerBase
 
     }
 
-    [HttpDelete("{id}")]
-    public int Delete([FromBody] MyBasketItem myBasketItem)
+    [HttpPost]
+    [Route("DeleteItem")]
+    public async Task Delete([FromBody] int id)
     {
-        _myBasketItemWriteRepository.RemoveAsync(myBasketItem.Id.ToString());
-        var id = _myBasketItemWriteRepository.SaveAsync();
-        return id.Result;
+        await _myBasketItemWriteRepository.RemoveAsync(id);
+        await _myBasketItemWriteRepository.SaveAsync();
+    }
+
+    [HttpPost]
+    [Route("DeleteAll")]
+    public async Task Delete()
+    {
+        _myBasketItemWriteRepository.RemoveAll();
+        await _myBasketItemWriteRepository.SaveAsync();
     }
 }
