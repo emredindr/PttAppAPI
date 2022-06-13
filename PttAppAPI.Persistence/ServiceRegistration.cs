@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using PttApp.Application.Abstractions;
 using PttAppAPI.Application.Abstractions;
 using PttAppAPI.Application.Repositories;
 using PttAppAPI.Persistence.Concretes;
@@ -12,8 +13,11 @@ public static class ServiceRegistration
     public static void AddPersistenceServices(this IServiceCollection services)
     {
         services.AddSingleton<IProductService, ProductService>();
+        services.AddSingleton<IHomeService, HomeService>();
         services.AddSingleton<ICategoryService, CategoryService>();
-        services.AddDbContext<PttAppAPIDbContext>(options => options.UseSqlServer(Configuration.ConnectionString), ServiceLifetime.Singleton);
+        services.AddSingleton< IAccountService , AccountService>();
+        services.AddSingleton<ICategoryService, CategoryService>();
+        services.AddDbContext<PttAppAPIDbContext>(options => options.UseSqlServer("server=.;database=PttAppDatabase;User Id=emre;Password=emre77;"), ServiceLifetime.Singleton);
         //services.AddDbContext<PttAppAPIDbContext>(option => option.UseSqlServer(Configuration.ConnectionString));
         //Read Scopeds
         services.AddScoped<IProductReadRepository, ProductReadRepository>();
@@ -25,7 +29,7 @@ public static class ServiceRegistration
         services.AddScoped<IAccountPageItemLoginedReadRepository,AccountPageItemLoginedReadRepository>();
         services.AddScoped<IAccountPageItemReadRepository, AccountPageItemReadRepository>();
         
-        //Read Scopeds
+        //Write Scopeds
         services.AddScoped<IProductWriteRepository, ProductWriteRepository>();
         services.AddScoped<IMainCategoryWriteRepository, MainCategoryWriteRepository>();
         services.AddScoped<IAccountPageItemLoginedWriteRepository, AccountPageItemLoginedWriteRepository>();
