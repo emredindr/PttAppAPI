@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PttApp.Application.Abstractions;
+using PttApp.Domain.Entities;
 using PttAppAPI.Application.Repositories;
 
 namespace PttAppAPI.API.Controllers;
@@ -30,12 +31,22 @@ public class AccountController : ControllerBase
         _accountPageItemWriteRepository = accountPageItemWriteRepository;
         _accountPageItemLoginedWriteRepository = accountPageItemLoginedWriteRepository;
     }
-
-    [HttpPost]
-    public async Task AddAllItemLogined()
+    [HttpGet]
+    [Route("GetAllItems")]
+    public List<AccountPageItem> GetAllItems()
     {
-        var datas = _accountService.GetAccountPageItemsLogined();
-        await _accountPageItemLoginedWriteRepository.AddRangeAsync(datas);
-        await _accountPageItemLoginedWriteRepository.SaveAsync();
+        var items = _accountPageItemReadRepository.GetAll();
+
+        return items.ToList();
     }
+    
+    [HttpGet]
+    [Route("GetAllItemsLogined")]
+    public List<AccountPageItem> GetAllItemsLogined()
+    {
+        var items = _accountPageItemReadRepository.GetAll();
+
+        return items.ToList();
+    }
+
 }
