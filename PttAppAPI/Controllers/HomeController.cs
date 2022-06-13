@@ -27,16 +27,9 @@ public class HomeController : ControllerBase
     [HttpGet]
     public List<Banner> GetAll()
     {
-        var products = _bannerReadRepository.GetAll();
+        var banners = _bannerReadRepository.GetAll();
 
-        return products.ToList();
+        return banners.ToList();
     }
-    //[HttpPost]
-    //public async Task AddAllBanner()
-    //{
-    //    var banners = _homeService.GetBanners();
-    //    await _bannerWriteRepository.AddRangeAsync(banners);
-    //    await _bannerWriteRepository.SaveAsync();
-    //}
 
 }
